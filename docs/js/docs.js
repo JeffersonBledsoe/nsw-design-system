@@ -18,22 +18,23 @@ function initDocs() {
     }, false);
   });
 
-
   const copyButtons = document.querySelectorAll('.js-code-copy');
 
   copyButtons.forEach((button) => {
-    const code = button.closest('.nsw-docs-code').previousElementSibling.querySelector('.nsw-docs__component');
+    const code = button.nextElementSibling;
     const text = button.querySelector('span');
+    const script = code.querySelector('script');
+
+    script.remove();
 
     button.addEventListener('click', (event) => {
       const elem = document.createElement('textarea');
-      elem.value = code.innerHTML;
+      elem.value = code.innerHTML.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
       document.body.appendChild(elem);
       elem.select();
       document.execCommand('copy');
-      document.body.removeChild(elem);
-
       text.textContent = 'Copied';
+      document.body.removeChild(elem);
 
       setTimeout(function() {
         text.textContent = 'Copy';
@@ -64,6 +65,67 @@ function initDocs() {
         link.classList.add('current-section');
       }
     }
+  });
+
+  let baseURL = window.location.pathname;
+  let searchData = [];
+  var searchUrl = '';
+
+  if(baseURL.startsWith('/nsw-design-system')) {
+    searchUrl = '/nsw-design-system';
+  }
+
+  fetch(searchUrl + '/docs/js/search.json')
+    .then((response) => response.json())
+    .then((data) => {
+      searchData = data;
+    });
+
+  const autocomplete = document.querySelector('.nsw-autocomplete');
+  const autocompleteInput = autocomplete.querySelector('.nsw-autocomplete__input');
+  const autocompleteNoResult = autocomplete.querySelector('.nsw-autocomplete__no-result');
+
+  let autocompleteInputValue = '';
+
+  const newAutocomplete = new Autocomplete(autocomplete, {
+
+    search: (input) => {
+      autocompleteInputValue = input;
+      if (input.length < 1) { return [] }
+      return searchData.filter((item) => item.title.toLowerCase().includes(input.toLowerCase())
+      || item.keywords.toLowerCase().includes(input.toLowerCase()))
+    },
+
+    renderResult: (result, props) => `
+      <li ${props}>
+        <a href="${searchUrl}${result.url}">
+          ${result.title}
+        </a>
+      </li>
+    `,
+
+    onUpdate: (results) => {
+      if (autocompleteInputValue && results.length === 0) {
+        autocompleteNoResult.classList.add('show');
+      } else {
+        autocompleteNoResult.classList.remove('show');
+      }
+    },
+
+    getResultValue: (result) => result.title,
+
+    onSubmit: (result) => {
+      autocompleteNoResult.classList.remove('show');
+      window.open(`${searchUrl}${result.url}`, '_self');
+    },
+  });
+
+  autocompleteInput.addEventListener('focus', () => {
+    autocompleteNoResult.classList.add('active');
+  });
+
+  autocompleteInput.addEventListener('blur', () => {
+    autocompleteNoResult.classList.remove('active');
   });
 }
 

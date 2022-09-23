@@ -1,28 +1,19 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NSW Digital Design System - Forms</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="robots" content="noindex" />
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <base href="/nsw-design-system/">
   <link rel="icon" href="/nsw-design-system/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/nsw-design-system/docs/css/docs.css">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TMEHXHFJXJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-TMEHXHFJXJ');
-  </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TMEHXHFJXJ"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-TMEHXHFJXJ");</script>
 </head>
 
 <body>
@@ -48,9 +39,16 @@
   		    </div>
   		  </div>
   		  <div class="nsw-form__group">
-  		    <div class="nsw-form__input-group nsw-form__input-group--icon nsw-form__input-group--large">
+  		    <div class="nsw-form__input-group nsw-form__input-group--icon">
   		      <label class="sr-only" for="form-input-group-icon-1">Search</label>
   		      <input class="nsw-form__input" type="text" id="form-input-group-icon-1" name="form-input-group-icon-1" value="">
+  		      <button class="nsw-button nsw-button--dark nsw-button--flex" type="submit"><span class="material-icons nsw-material-icons" focusable="false" aria-hidden="true">search</span></button>
+  		    </div>
+  		  </div>
+  		  <div class="nsw-form__group">
+  		    <div class="nsw-form__input-group nsw-form__input-group--icon">
+  		      <label class="sr-only" for="form-input-group-icon-2">Search</label>
+  		      <input class="nsw-form__input" type="text" id="form-input-group-icon-2" name="form-input-group-icon-2" value="">
   		      <button class="nsw-button nsw-button--white nsw-button--flex" type="submit"><span class="material-icons nsw-material-icons" focusable="false" aria-hidden="true">search</span></button>
   		    </div>
   		  </div>
@@ -60,9 +58,9 @@
   		    <div class="nsw-form__predictive">
   		      <input class="nsw-form__input" type="text" id="form-predictive-text-1" name="form-predictive-text-1" value="Horn" aria-autocomplete="list" autocomplete="off">
   		      <ul class="nsw-form__predictive-list">
-  		        <li><a href="/nsw-design-system"><span>Horn</span>sby</a></li>
-  		        <li><a href="/nsw-design-system"><span>Horn</span>sby Heights</a></li>
-  		        <li><a href="/nsw-design-system"><span>Horn</span>ingsea Park</a></li>
+  		        <li><a href="#"><span>Horn</span>sby</a></li>
+  		        <li><a href="#"><span>Horn</span>sby Heights</a></li>
+  		        <li><a href="#"><span>Horn</span>ingsea Park</a></li>
   		      </ul>
   		    </div>
   		  </div>
@@ -75,24 +73,24 @@
   		        <button class="nsw-button nsw-button--dark nsw-button--flex" type="submit">Search</button>
   		      </div>
   		      <ul class="nsw-form__predictive-list">
-  		        <li><a href="/nsw-design-system"><span>Tran</span>sport</a></li>
-  		        <li><a href="/nsw-design-system">Road <span>Tran</span>sport</a></li>
-  		        <li><a href="/nsw-design-system">Public <span>Tran</span>sport</a></li>
+  		        <li><a href="#"><span>Tran</span>sport</a></li>
+  		        <li><a href="#">Road <span>Tran</span>sport</a></li>
+  		        <li><a href="#">Public <span>Tran</span>sport</a></li>
   		      </ul>
   		    </div>
   		  </div>
   		  <br><br><br><br><br><br>
   		  <div class="nsw-form__group">
   		    <div class="nsw-form__predictive">
-  		      <div class="nsw-form__input-group nsw-form__input-group--icon nsw-form__input-group--large">
+  		      <div class="nsw-form__input-group nsw-form__input-group--icon">
   		        <label class="sr-only" for="form-predictive-group-icon-1">Search</label>
   		        <input class="nsw-form__input" type="text" id="form-predictive-group-icon-1" name="form-predictive-group-icon-1" value="Govern" aria-autocomplete="list" autocomplete="off">
-  		        <button class="nsw-button nsw-button--white nsw-button--flex" type="submit"><span class="material-icons nsw-material-icons" focusable="false" aria-hidden="true">search</span></button>
+  		        <button class="nsw-button nsw-button--dark nsw-button--flex" type="submit"><span class="material-icons nsw-material-icons" focusable="false" aria-hidden="true">search</span></button>
   		      </div>
-  		      <ul class="nsw-form__predictive-list nsw-form__predictive-list--large">
-  		        <li><a href="/nsw-design-system"><span>Govern</span>ment</a></li>
-  		        <li><a href="/nsw-design-system"><span>Govern</span>ment payments</a></li>
-  		        <li><a href="/nsw-design-system"><span>Govern</span>ance</a></li>
+  		      <ul class="nsw-form__predictive-list">
+  		        <li><a href="#"><span>Govern</span>ment</a></li>
+  		        <li><a href="#"><span>Govern</span>ment payments</a></li>
+  		        <li><a href="#"><span>Govern</span>ance</a></li>
   		      </ul>
   		    </div>
   		  </div>
